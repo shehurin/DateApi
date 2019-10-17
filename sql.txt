@@ -1,0 +1,33 @@
+create database DateDB;
+
+go
+
+use DateDB;
+
+go
+
+CREATE TABLE dbo.Dates
+(
+   Id int not null IDENTITY(1,1) primary key,
+   DateFrom Date NOT NULL,
+   DateTo Date NOT NULL
+);
+
+go
+
+INSERT INTO dbo.Dates (DateFrom, DateTo) 
+VALUES 
+     ('2018-01-01', '2018-01-03'),
+	 ('2018-01-01', '2018-01-31'),
+	 ('2018-01-03', '2018-01-05')
+
+go
+
+CREATE TABLE dbo.ReplyLog
+(
+   Id int not null IDENTITY(1,1) primary key,
+   DateOfRequest DateTime NOT NULL,
+   RequestedDateFrom Date NOT NULL,
+   RequestedDateTo Date NOT NULL,
+   Result nvarchar(max)
+);
